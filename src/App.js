@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import SearchAppBar from './components/SearchAppBar'
+import { Pagination } from '@mui/material'
+import JobTags from './components/JobTags'
+import { useState } from 'react'
+import jobs from './data'
 
-function App() {
+function App () {
+  const [listJob, setListJobs] = useState(jobs.slice(0, 5))
+  const handleChangePage = (e, page) => {
+    setListJobs(jobs.slice((page - 1) * 5, (page - 1) * 5 + 5))
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <SearchAppBar />
+      <JobTags jobs={listJob} />
+      <Pagination
+        className='pagination'
+        count={Number.parseInt(jobs.length / 5)}
+        onChange={(e, page) => handleChangePage(e, page)}
+        variant='outlined'
+        shape='rounded'
+        color='primary'
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

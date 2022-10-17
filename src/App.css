@@ -1,5 +1,8 @@
+html, body{min-height:100%;}
+body{height:100vh; background-color: #000;}
 .App {
   text-align: center;
+ 
 }
 
 .App-logo {
@@ -35,4 +38,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+.pagination ul{
+  position: sticky;
+  background-color:inherit;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+ 
+  height: 5%;
+}
+.pagination ul button{
+  color : white !important;
 }
