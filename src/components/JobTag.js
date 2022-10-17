@@ -5,9 +5,6 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import ButtonGroup from '@mui/material/ButtonGroup'
-import Menu from '@mui/material/Menu'
-import MenuItem from '@mui/material/MenuItem'
 
 function VariantButtonGroup ({ job }) {
   return (
