@@ -5,7 +5,8 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { Chip } from '@mui/material'
+import { Chip, Divider, Paper } from '@mui/material'
+import { border, borderColor, display } from '@mui/system'
 
 function VariantButtonGroup ({ job }) {
   return (
@@ -15,7 +16,7 @@ function VariantButtonGroup ({ job }) {
         flexDirection: 'row',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        alignItems: 'space-between'
+        alignItems: 'center'
       }}
     >
       {job.skills.slice(0, 4).map(s => (
@@ -35,34 +36,49 @@ function VariantButtonGroup ({ job }) {
 }
 function JobTag ({ job }) {
   return (
-    <Card variant='outlined' sx={{ width: 'fit-content' }}>
-      <React.Fragment>
+    <Paper
+      sx={{
+        backgroundColor: '#353535',
+        color: 'white',
+        marginTop: '20px'
+      }}
+    >
+      <Card
+        variant='outlined'
+        sx={{
+          backgroundColor: 'inherit',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
         <CardContent>
-          <Typography sx={{ fontSize: 18 }} color='text.secondary' gutterBottom>
+          <Typography sx={{ fontSize: 18 }} color='white' gutterBottom>
             {job.title}
           </Typography>
+          <Divider />
           <Typography variant='h5' component='span'>
             <VariantButtonGroup job={job} />
           </Typography>
-          <Typography sx={{ mb: 1.5 }} color='text.secondary'></Typography>
-          <Typography variant='body2'>{job.description}</Typography>
-        </CardContent>
-        <CardActions>
-          <Button
+          <Box
             sx={{
-              alignSelf: 'center',
-              backgroundColor: '#FFA726',
-              display: 'absolute',
-              left: '40%',
-              color: 'black'
+              display: 'flex',
+              flexWrap: 'wrap',
+              '& > :not(style)': {
+                m: 1
+              }
             }}
-            size='small'
           >
-            Learn More
-          </Button>
-        </CardActions>
-      </React.Fragment>
-    </Card>
+            <Typography sx={{ fontSize: 16 }} color='white' gutterBottom>
+              {job.description}
+            </Typography>
+          </Box>
+        </CardContent>
+        {/* <CardActions>
+          <Button>Learn More</Button>
+        </CardActions> */}
+      </Card>
+    </Paper>
   )
 }
 export default JobTag

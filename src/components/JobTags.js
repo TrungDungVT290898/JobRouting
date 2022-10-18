@@ -1,27 +1,35 @@
 import React from 'react'
 import JobTag from './JobTag'
 
-import { Grid } from '@mui/material'
+import { Grid, Divider, Item } from '@mui/material'
+import { Container } from '@mui/system'
 function JobTags ({ jobs }) {
   return (
-    <Grid
-      sx={{
-        padding: 2,
-        margin: 2,
-        display: 'flex',
-        justifyContent: 'center',
-        alignContent: 'center',
-        flexWrap: 'wrap'
-      }}
-      container
-      spacing={2}
-    >
-      {jobs.map(j => (
-        <Grid item key={`job_grid_${j.id}`} xs={8} md={4}>
-          <JobTag key={`job_${j.id}`} job={j} />
-        </Grid>
-      ))}
-    </Grid>
+    <Container>
+      <Grid
+        container
+        spacing={{ xs: 5, md: 7 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        sx={{ margin: 10, padding: 10 }}
+      >
+        {jobs.map(job => (
+          <Grid
+            item
+            xs={2}
+            sm={4}
+            md={6}
+            key={`${job.id}`}
+            sx={{
+              backgroundColor: 'inherit',
+              textAlign: 'center',
+              height: 300
+            }}
+          >
+            <JobTag job={job} />
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   )
 }
 
