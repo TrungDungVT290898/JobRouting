@@ -5,6 +5,7 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import { Chip } from '@mui/material'
 
 function VariantButtonGroup ({ job }) {
   return (
@@ -18,7 +19,8 @@ function VariantButtonGroup ({ job }) {
       }}
     >
       {job.skills.slice(0, 4).map(s => (
-        <Button
+        <Chip
+          label={s}
           sx={{
             fontSize: 10,
             margin: 0.5,
@@ -26,9 +28,7 @@ function VariantButtonGroup ({ job }) {
             color: 'white'
           }}
           key={`button-${job.title}-${s}`}
-        >
-          {s}
-        </Button>
+        />
       ))}
     </Box>
   )
