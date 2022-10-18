@@ -11,18 +11,20 @@ function App () {
     setListJobs(jobs.slice((page - 1) * 5, (page - 1) * 5 + 5))
   }
   return (
-    <div className='App'>
+    <>
       <SearchAppBar />
-      <JobTags jobs={listJob} />
-      <Pagination
-        className='pagination'
-        count={Number.parseInt(jobs.length / 5)}
-        onChange={(e, page) => handleChangePage(e, page)}
-        variant='outlined'
-        shape='rounded'
-        color='primary'
-      />
-    </div>
+      <div className='App'>
+        <JobTags jobs={listJob} />
+        <Pagination
+          className='pagination'
+          count={Number.parseInt(jobs.length / 5)}
+          onChange={(e, page) => handleChangePage(e, page)}
+          variant='outlined'
+          shape='rounded'
+          color='primary'
+        />
+      </div>
+    </>
   )
 }
 

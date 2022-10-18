@@ -5,7 +5,8 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import { Chip } from '@mui/material'
+import { Chip, Divider } from '@mui/material'
+import { width } from '@mui/system'
 
 function VariantButtonGroup ({ job }) {
   return (
@@ -22,8 +23,8 @@ function VariantButtonGroup ({ job }) {
         <Chip
           label={s}
           sx={{
-            fontSize: 10,
-            margin: 0.5,
+            fontSize: 6,
+            margin: 0.2,
             backgroundColor: 'tomato',
             color: 'white'
           }}
@@ -35,25 +36,24 @@ function VariantButtonGroup ({ job }) {
 }
 function JobTag ({ job }) {
   return (
-    <Card variant='outlined' sx={{ width: 'fit-content' }}>
+    <Card variant='outlined' sx={{ width: '300px', height: '240px' }}>
       <React.Fragment>
         <CardContent>
-          <Typography sx={{ fontSize: 18 }} color='text.secondary' gutterBottom>
+          <Typography sx={{ fontSize: 16 }} color='text.secondary' gutterBottom>
             {job.title}
           </Typography>
+          <Divider />
           <Typography variant='h5' component='span'>
             <VariantButtonGroup job={job} />
           </Typography>
           <Typography sx={{ mb: 1.5 }} color='text.secondary'></Typography>
           <Typography variant='body2'>{job.description}</Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
           <Button
             sx={{
-              alignSelf: 'center',
               backgroundColor: '#FFA726',
-              display: 'absolute',
-              left: '40%',
+
               color: 'black'
             }}
             size='small'
