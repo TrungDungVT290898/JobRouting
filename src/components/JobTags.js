@@ -15,7 +15,7 @@ function JobTags ({ jobs }) {
         margin: 'auto'
       }}
       container
-      spacing={2}
+      spacing={4}
     >
       {jobs.map(j => (
         <Grid item key={`job_grid_${j.id}`} sx={{ marginTop: '20px' }}>

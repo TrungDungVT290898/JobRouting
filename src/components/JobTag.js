@@ -13,7 +13,6 @@ function VariantButtonGroup ({ job }) {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'row',
         justifyContent: 'center',
         flexWrap: 'wrap',
         alignItems: 'space-between'
@@ -36,10 +35,18 @@ function VariantButtonGroup ({ job }) {
 }
 function JobTag ({ job }) {
   return (
-    <Card variant='outlined' sx={{ width: '300px', height: '240px' }}>
+    <Card
+      variant='outlined'
+      sx={{
+        width: '300px',
+        height: '240px',
+        backgroundColor: '#353535',
+        color: 'white'
+      }}
+    >
       <React.Fragment>
         <CardContent>
-          <Typography sx={{ fontSize: 16 }} color='text.secondary' gutterBottom>
+          <Typography sx={{ fontSize: 14 }} color='inherit' gutterBottom>
             {job.title}
           </Typography>
           <Divider />
