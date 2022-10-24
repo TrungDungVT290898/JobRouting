@@ -7,7 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
 import { deepOrange } from "@mui/material/colors";
-import { Button, InputAdornment, CircularProgress } from "@mui/material";
+import { Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { OpenLoginModalContext } from "../contexts/Export";
 import LoadingButton from "@mui/lab/LoadingButton";
@@ -30,7 +30,7 @@ export default function SearchAppBar() {
         position: "absolute",
         width: "100%",
         top: 0,
-        heigth: "50px",
+        heigth: "20px",
       }}
     >
       <AppBar position="static" sx={{ backgroundColor: "#272727" }}>
@@ -54,36 +54,24 @@ export default function SearchAppBar() {
               <FTextField
                 sx={{
                   input: {
-                    color: "white",
                     fontSize: 12,
                     border: "0px solid white ",
+                    backgroundColor: "white",
                   },
                 }}
                 name="searchKeyword"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <LoadingButton
-                        loading={isSubmitting}
-                        loadingIndicator={
-                          <CircularProgress
-                            color="inherit"
-                            size={16}
-                            value={50}
-                          />
-                        }
-                        type="submit"
-                        sx={{ color: "white" }}
-                      >
-                        <SearchIcon />
-                      </LoadingButton>
-                    </InputAdornment>
-                  ),
-                }}
               />
             </FormProvider>
           </Typography>
-
+          <Typography>
+            <LoadingButton
+              loading={isSubmitting}
+              type="submit"
+              sx={{ color: "white", width: "10%" }}
+            >
+              <SearchIcon />
+            </LoadingButton>
+          </Typography>
           <Typography>
             {loginContextValue.isLogin ? (
               <Avatar sx={{ bgcolor: deepOrange[500] }}>
