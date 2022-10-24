@@ -7,10 +7,10 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
 import { deepOrange } from "@mui/material/colors";
-import { Button } from "@mui/material";
+import { Button, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { OpenLoginModalContext } from "../contexts/Export";
-import LoadingButton from "@mui/lab/LoadingButton";
+
 import { FormProvider, FTextField } from "./FormLibs/index";
 import { useForm } from "react-hook-form";
 
@@ -18,11 +18,7 @@ export default function SearchAppBar() {
   const loginContextValue = React.useContext(OpenLoginModalContext);
 
   const methods = useForm();
-  const {
-    handleSubmit,
-
-    formState: { isSubmitting },
-  } = methods;
+  const { handleSubmit } = methods;
   return (
     <Box
       sx={{
@@ -30,7 +26,7 @@ export default function SearchAppBar() {
         position: "absolute",
         width: "100%",
         top: 0,
-        heigth: "20px",
+        heigth: "50px",
       }}
     >
       <AppBar position="static" sx={{ backgroundColor: "#272727" }}>
@@ -54,24 +50,27 @@ export default function SearchAppBar() {
               <FTextField
                 sx={{
                   input: {
-                    fontSize: 12,
+                    color: "white",
+                    fontSize: 16,
                     border: "0px solid white ",
-                    backgroundColor: "white",
+
+                    textAlign: "left",
                   },
                 }}
                 name="searchKeyword"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon
+                        sx={{ color: "white", backgroundColor: "inherit" }}
+                      />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </FormProvider>
           </Typography>
-          <Typography>
-            <LoadingButton
-              loading={isSubmitting}
-              type="submit"
-              sx={{ color: "white", width: "10%" }}
-            >
-              <SearchIcon />
-            </LoadingButton>
-          </Typography>
+
           <Typography>
             {loginContextValue.isLogin ? (
               <Avatar sx={{ bgcolor: deepOrange[500] }}>
