@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import OpenLoginModalContext from "../contexts/Export";
 import { Stack } from "@mui/system";
-import { Alert, Divider, Link } from "@mui/material";
+import { Divider, Link } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { FormProvider, FTextField, FCheckBox } from "./FormLibs/index";
 import { InputAdornment } from "@mui/material";
@@ -31,11 +31,9 @@ export default function LoginModal() {
 
   const methods = useForm(openContextValue.defaultValue);
   const {
-    reset,
-    setError,
     handleSubmit,
-    control,
-    formState: { error, isSubmitting },
+
+    formState: { isSubmitting },
   } = methods;
 
   const [showPassword, setShowPassword] = React.useState(false);
