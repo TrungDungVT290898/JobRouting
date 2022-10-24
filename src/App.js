@@ -7,13 +7,13 @@ import jobs from "./data";
 import LoginModal from "./components/LoginModal";
 import { OpenLoginModalContext } from "./contexts/Export";
 import DetailModal from "./components/DetailModal";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 const defaultValue = {
   username: "nguyentrungdung12a@gmail.com",
   password: "123",
   remember: true,
 };
-const fetchUrl = "http://localhost:3000/jobs";
+
 function App() {
   const navigate = useNavigate();
   const isRequestOpenDetail = useRef(false);
