@@ -47,7 +47,7 @@ function App() {
   const handleShowDetailJob = (job) => {
     console.log(job);
     if (!isLogin) {
-      SetIsOpenLoginModal(true);
+      handleLoginClick();
       isRequestOpenDetail.current = true;
     } else {
       setIsOpenDetailModal(true);
